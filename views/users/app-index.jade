@@ -1,0 +1,45 @@
+extends layout
+block header
+	div.header
+		div.col-sm-12
+			h1 KonnectPlay
+block content
+	div.container
+		div.row
+			a(href="/app/app-create") New App 
+		div.row
+			div.col-sm-2
+				p Left Sidebar
+			div.col-sm-8
+				- if (typeof(notice) !== 'undefined'){
+					-if (notice == 'create-success'){
+						p 
+						| App Successfully created.
+					-}
+					-if (notice == 'edit-success'){
+						p 
+						| App Successfully edited.
+					-}
+				-}
+				table.table
+					tr
+						th Sr. No.
+						th App Name
+						th App Url
+						th Action
+					each val, index in userapps
+						tr
+							td #{index}
+							td #{val.app_name}
+							td #{val.app_url}
+							td 
+								a(href="/app/app-edit/#{val._id}")
+									span.glyphicon.glyphicon-pencil(aria-hidden="true")
+								a(href="/app/app-delete/#{val._id}")
+									span.glyphicon.glyphicon-trash(aria-hidden="true")
+			div.col-sm-2
+				p Right Sidebar
+				a(href="/logout") Logout
+	div.footer
+
+block footer

@@ -1,0 +1,42 @@
+extends layout
+block header
+	div.header
+		h1 KonnectPlay
+block content
+	div.container
+		div.row
+			div.col-sm-2
+			div.col-sm-8
+				form.form-horizontal(method="post", name="app-create" id="app-create", action="/app/app-create")
+					div.form-group
+						label.col-sm-2.control-label(for="app_name") App Name
+						div.col-sm-10
+							input.form-control(id="app_name", type="text", name="app_name", placeholder="Enter your App Name")
+							label.error(for="app_name") Please enter App Name.
+					div.form-group
+						label.col-sm-2.control-label App Type	
+						div.col-sm-10
+							div.col-sm-3
+								div.radio
+									input(id="android_app", type="radio", name="app_type", value="android") 
+									| Android 
+							div.col-sm-3
+								div.radio
+									input(id="iphone_app", type="radio", name="app_type", value="iphone")
+									| Iphone 
+							div.col-sm-4
+								div.radio
+									input(id="unity_app", type="radio", name="app_type", value="unity")
+									| Unity 3D
+							label.error(for="app_type") Please select App Type. 
+					div.form-group
+						label.col-sm-2.control-label(for="app_url") App Url
+						div.col-sm-10
+							input.form-control(id="app_url", type="text", name="app_url", placeholder="Enter your app_url")
+					div.form-group
+						div.col-sm-offset-2.col-sm-10
+							input.btn.btn-default(type="submit", value="Submit")
+			div.col-sm-2
+	div.footer
+
+block footer
